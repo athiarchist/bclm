@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^5.4.2"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.4"
   }
 }

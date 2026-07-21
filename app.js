@@ -251,7 +251,7 @@ function playMooSound() {
 }
 
 /* ==========================================================================
-   4. Guestbook & Photo Upload Wall
+   4. Guestbook & Photo Upload Wall (SQLite API + Local Storage Fallback)
    ========================================================================== */
 let guestbookEntries = [];
 let currentPhotoDataUrl = null;
@@ -296,17 +296,30 @@ function initGuestbook() {
   setupFilterTabs();
 }
 
-function loadGuestbookData() {
-  // Clear old storage if it had female pronouns so starter entries refresh cleanly
-  const stored = localStorage.getItem('bclm_guestbook');
-  if (stored && stored.includes('she is')) {
-    localStorage.removeItem('bclm_guestbook');
+async function loadGuestbookData() {
+  try {
+    const res = await fetch('/api/guestbook');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const myLikes = JSON.parse(localStorage.getItem('bclm_my_likes') || '{}');
+        guestbookEntries = data.map(item => ({
+          ...item,
+          liked: Boolean(myLikes[item.id])
+        }));
+        renderGuestbook('all');
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn('SQLite API fetch offline or not deployed yet, falling back to local mode.', err);
   }
 
-  const updatedStored = localStorage.getItem('bclm_guestbook');
-  if (updatedStored) {
+  // Fallback to localStorage / Starter entries
+  const stored = localStorage.getItem('bclm_guestbook');
+  if (stored) {
     try {
-      guestbookEntries = JSON.parse(updatedStored);
+      guestbookEntries = JSON.parse(stored);
     } catch (e) {
       guestbookEntries = [...STARTER_ENTRIES];
     }
@@ -399,7 +412,7 @@ function setupFormSubmission() {
   const form = document.getElementById('guestbook-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const nameInput = document.getElementById('gb-name');
@@ -412,11 +425,41 @@ function setupFormSubmission() {
 
     if (!name || !message) return;
 
+    const payload = {
+      name,
+      location,
+      message,
+      photo: currentPhotoDataUrl
+    };
+
+    // Try posting to SQLite API first
+    try {
+      const res = await fetch('/api/guestbook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.entry) {
+          guestbookEntries.unshift(data.entry);
+          renderGuestbook('all');
+          form.reset();
+          clearPhotoUpload();
+          triggerConfettiBurst(window.innerWidth / 2, window.innerHeight / 3);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn('API submission offline, using local fallback.', err);
+    }
+
+    // Local fallback
     const newEntry = {
       id: 'gb-' + Date.now(),
-      name: name,
-      location: location,
-      message: message,
+      name,
+      location,
+      message,
       photo: currentPhotoDataUrl,
       time: 'Just now',
       likes: 1,
@@ -429,7 +472,6 @@ function setupFormSubmission() {
 
     form.reset();
     clearPhotoUpload();
-
     triggerConfettiBurst(window.innerWidth / 2, window.innerHeight / 3);
   });
 }
@@ -499,16 +541,27 @@ function renderGuestbook(filter = 'all') {
   }).join('');
 }
 
-window.toggleEntryLike = function(id) {
+window.toggleEntryLike = async function(id) {
   const entry = guestbookEntries.find(item => item.id === id);
   if (entry) {
-    if (entry.liked) {
-      entry.likes -= 1;
-      entry.liked = false;
-    } else {
-      entry.likes += 1;
-      entry.liked = true;
-    }
+    const isNowLiked = !entry.liked;
+    entry.liked = isNowLiked;
+    entry.likes = isNowLiked ? entry.likes + 1 : Math.max(0, entry.likes - 1);
+
+    const myLikes = JSON.parse(localStorage.getItem('bclm_my_likes') || '{}');
+    if (isNowLiked) myLikes[id] = true;
+    else delete myLikes[id];
+    localStorage.setItem('bclm_my_likes', JSON.stringify(myLikes));
+
+    // Try API like update
+    try {
+      fetch('/api/like', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, increment: isNowLiked })
+      });
+    } catch (e) {}
+
     saveGuestbookData();
     const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
     renderGuestbook(activeFilter);
