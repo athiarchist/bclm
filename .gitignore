@@ -1,3 +1,11 @@
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# Seed scripts
+seed.js
+
 # Logs
 logs
 *.log
@@ -11,6 +19,8 @@ node_modules
 dist
 dist-ssr
 *.local
+local_guestbook.db
+*.db
 
 # Editor directories
 .idea
