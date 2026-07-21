@@ -538,7 +538,11 @@ function renderGuestbook(filter = 'all') {
         </div>
       </div>
     `;
-  }).join('');
+  }).join('') + `
+    <div class="scroll-hint-bar">
+      <span>📜 Showing all ${list.length} wall posts — Touch or scroll to explore</span>
+    </div>
+  `;
 }
 
 window.toggleEntryLike = async function(id) {
