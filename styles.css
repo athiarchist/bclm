@@ -197,7 +197,13 @@ body {
 
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
 .brand-logo { height: 42px; width: auto; border-radius: 50%; border: 2px solid var(--accent-gold); }
-.brand-text { font-family: var(--font-heading); font-size: 26px; letter-spacing: 2px; font-weight: 700; }
+.brand-text {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 15px; transition: color var(--transition-fast); }
