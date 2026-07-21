@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="movement">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Cow Lives Matter | BCLM - The Rescue Story & Pasture Wall</title>
+  <meta name="description" content="Black Cow Lives Matter (BCLM) - Saved from the line to live free as a beloved pasture steer pet. Explore his story, shop official BCLM merch, sound the moo, and share your photos on the community wall.">
+  
+  <!-- Google Fonts: Inter, Oswald, Playfair Display, Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Canvas for particle confetti -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Live 3-in-1 Theme Switcher Explorer Bar -->
+  <div class="theme-switcher-bar">
+    <div class="theme-switcher-container">
+      <span class="switcher-label">🎨 <strong>Compare Design Concepts:</strong></span>
+      <div class="theme-buttons">
+        <button class="theme-btn active" data-theme-id="movement" title="Modern Dark Onyx & Gold">
+          <span class="theme-dot gold"></span> Concept 1: Modern Gold
+        </button>
+        <button class="theme-btn" data-theme-id="noir" title="Stark Black & White Minimalist Editorial">
+          <span class="theme-dot bw"></span> Concept 2: B&W Documentary
+        </button>
+        <button class="theme-btn" data-theme-id="pasture" title="Warm Earthy Storybook Meadow">
+          <span class="theme-dot earth"></span> Concept 3: Warm Pasture
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="/assets/BCLM_big.png" alt="BCLM Logo" class="brand-logo">
+        <span class="brand-text">BCLM</span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#story">The Rescue Story</a>
+        <a href="#merch">Merchandise</a>
+        <a href="#soundboard">Moo Soundboard</a>
+        <a href="#guestbook">Pasture Wall & Uploads</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://spite-network-shop.fourthwall.com/collections/bclm" target="_blank" rel="noopener" class="btn btn-primary" id="nav-shop-btn">
+          <span class="btn-icon">🛍️</span> Shop Collection
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span id="supporter-count-badge">14,892</span> People Standing With BCLM
+        </div>
+        <h1 class="hero-title">
+          SAVED FROM THE LINE.<br>
+          <span class="gradient-text">LIVING HIS BEST LIFE.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Black Cow Lives Matter began with a single life-changing decision: stepping in to save a sweet black steer from slaughter and giving him a permanent home as a spoiled pasture pet.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-hero-primary" id="hero-pledge-btn">
+            <span class="btn-icon">🌾</span> Celebrate His Freedom (<span id="pledge-count-hero">14,892</span>)
+          </button>
+          <a href="#merch" class="btn btn-hero-secondary">
+            <span class="btn-icon">👕</span> Get Official BCLM Merch
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="logo-card-frame">
+          <img src="/assets/BCLM_big.png" alt="Black Cow Lives Matter Emblem" class="hero-logo-img">
+          <div class="logo-glow-effect"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rescue Journey Timeline Section -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">His Journey</span>
+        <h2 class="section-title">The Story Behind BCLM</h2>
+        <p class="section-desc">From an uncertain fate at auction to roaming free in green meadows. Here is how his life was saved.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">1</div>
+          <div class="timeline-content">
+            <span class="timeline-date">The Turning Point</span>
+            <h3>Saved From Slaughter</h3>
+            <p>At the auction block, his gentle eyes made it impossible to walk away. Instead of heading to processing, he was purchased on the spot and brought to safety.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">2</div>
+          <div class="timeline-content">
+            <span class="timeline-date">First Day Home</span>
+            <h3>Stepping Into Freedom</h3>
+            <p>Unloading off the trailer into fresh pasture grass for the first time. Unsure of what open space meant, he slowly felt green grass under his hooves.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">3</div>
+          <div class="timeline-content">
+            <span class="timeline-date">Pasture Pet Life Today</span>
+            <h3>Living Like Royalty</h3>
+            <p>Now he spends his days sunbathing, enjoying fresh apple treats, getting chin scratches, and inspiring people everywhere that every black steer matters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Merchandise Section -->
+  <section class="merch-section" id="merch">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Official Gear</span>
+        <h2 class="section-title">BCLM Fourthwall Collection</h2>
+        <p class="section-desc">Wear the movement! Grab official BCLM merch directly from our Fourthwall shop to support his pasture care and sanctuary fund.</p>
+      </div>
+
+      <div class="merch-grid">
+        <!-- Merch Item 1: Hat -->
+        <div class="merch-card">
+          <div class="merch-image-wrap">
+            <img src="https://imgproxy.fourthwall.dev/aEyKHnwyjQ8_cYzTtnVYoHx7xHXw1vrXgG_aeSj1Mq4/w:720/sm:1/enc/qaNm36Zu_KB2S6pM/nQmM_Z3VfkZylkYn/qU-YgtKzsmVESULO/yIwjSfnTB4iSR6Wp/E9qp1diCx42-BHIe/qTzO0WTZABM6bBSX/qU0Oze1V2ImxVWpU/DApEkQCgn704VLPG/gHmrYYy7TlBXbH7w/5NOlVxCVqV_WIx58/hiXoObdbRAtT2r4a/o_iDqjS-uqVuT7iJ/usYSgAvI2FBfsNY3/GUBWSMp-mgbh-KXa/N5IiKRPVPgg.jpg" alt="BCLM Flagship Hat" class="merch-img">
+            <span class="merch-badge">Fourthwall Exclusive</span>
+          </div>
+          <div class="merch-card-body">
+            <h3 class="merch-title">BCLM Flagship Hat</h3>
+            <p class="merch-desc">Classic structured black cap featuring the official BCLM embroidered logo. Adjustable fit for daily pasture wear.</p>
+            <div class="merch-footer">
+              <span class="merch-price">$15.00 USD</span>
+              <a href="https://spite-network-shop.fourthwall.com/products/bclm-flagship-hat" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                Buy Hat 🛒
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Merch Item 2: Tee -->
+        <div class="merch-card">
+          <div class="merch-image-wrap">
+            <img src="https://imgproxy.fourthwall.dev/uU5wv_6Qve-v9vamgDkqTfC-eegZaLQQDto3R2q7YdM/w:720/sm:1/enc/qPwrWhkAWicqkHgW/ScLAnR4DR6-L2fvd/3Yefku8vDLmTaNzT/d0_Gi1RX2vnZdDKz/hXn48ysU4ECoIJ-o/84YvCGDdNT4kj-xf/RHtuS4eFTeW951Yc/Rp9MxmgPPgOGc6ET/V457SHLGp_ZvsJnZ/Z6pDCBD7UkyOSKV-/kaAPstLmufKzBsQ5/36hHoikfC9q1lzTt/bEIz0xmTTQzXSk3m/PLT62gLARplxvt8A/g3VDPlR3ZPo.jpg" alt="BCLM Flagship Triblend Tee" class="merch-img">
+            <span class="merch-badge">Best Seller</span>
+          </div>
+          <div class="merch-card-body">
+            <h3 class="merch-title">BCLM Flagship Triblend Tee</h3>
+            <p class="merch-desc">Ultra-soft black triblend graphic t-shirt with high-contrast BCLM emblem chest print. Extremely comfortable fit.</p>
+            <div class="merch-footer">
+              <span class="merch-price">$15.00 USD</span>
+              <a href="https://spite-network-shop.fourthwall.com/products/bclm-flagship-triblend-tee" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                Buy Tee 👕
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop Collection Banner Card -->
+      <div class="shop-banner-card">
+        <div class="shop-banner-content">
+          <h3>Explore the Full BCLM Collection</h3>
+          <p>Official merchandise fulfilled securely by Fourthwall for Spite Network.</p>
+        </div>
+        <a href="https://spite-network-shop.fourthwall.com/collections/bclm" target="_blank" rel="noopener" class="btn btn-hero-primary">
+          <span class="btn-icon">🛍️</span> Visit Fourthwall Store
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Soundboard Section -->
+  <section class="soundboard-section" id="soundboard">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Interactive Feature</span>
+        <h2 class="section-title">Give Him a Moo 🐮</h2>
+        <p class="section-desc">Sound the horn of support for our steer! Generated live with browser Web Audio API.</p>
+      </div>
+
+      <div class="soundboard-card">
+        <div class="sound-visualizer" id="sound-visualizer">
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+          <div class="vis-bar"></div>
+        </div>
+
+        <button class="moo-btn" id="moo-trigger-btn" aria-label="Sound Moo Effect">
+          <div class="moo-btn-inner">
+            <span class="moo-emoji">🐮</span>
+            <span class="moo-text">SOUND THE MOO</span>
+          </div>
+        </button>
+
+        <div class="sound-controls">
+          <div class="control-group">
+            <label for="pitch-slider">Tone Pitch:</label>
+            <input type="range" id="pitch-slider" min="0.6" max="1.5" step="0.05" value="1.0">
+            <span id="pitch-val">Standard</span>
+          </div>
+          <div class="sound-stats">
+            Moos Sounded Today: <strong id="moo-counter">428</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Guestbook & Photo Upload Wall -->
+  <section class="guestbook-section" id="guestbook">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Pasture Wall</span>
+        <h2 class="section-title">Guestbook & Photo Uploads</h2>
+        <p class="section-desc">Post a message of encouragement, upload your favorite steer or farm photos, and join his community wall!</p>
+      </div>
+
+      <div class="guestbook-grid">
+        <!-- Guestbook Form Column -->
+        <div class="guestbook-form-card">
+          <h3 class="form-card-title">Leave a Love Note ✍️</h3>
+          <form id="guestbook-form" class="guestbook-form">
+            <div class="form-group">
+              <label for="gb-name">Your Name / Alias *</label>
+              <input type="text" id="gb-name" placeholder="e.g. Sarah Jenkins" required maxlength="40">
+            </div>
+
+            <div class="form-group">
+              <label for="gb-location">Location / Farm (Optional)</label>
+              <input type="text" id="gb-location" placeholder="e.g. Austin, TX" maxlength="40">
+            </div>
+
+            <div class="form-group">
+              <label for="gb-message">Your Message *</label>
+              <textarea id="gb-message" rows="3" placeholder="Share your love for our rescued pasture steer..." required maxlength="280"></textarea>
+            </div>
+
+            <!-- Drag & Drop Photo Upload Box -->
+            <div class="form-group">
+              <label>Upload Photo (Optional)</label>
+              <div class="upload-dropzone" id="upload-dropzone">
+                <input type="file" id="gb-photo" accept="image/*" class="file-input-hidden">
+                <div class="dropzone-content" id="dropzone-prompt">
+                  <span class="upload-icon">📸</span>
+                  <p class="upload-title">Drag & drop your photo or <span>browse</span></p>
+                  <p class="upload-hint">PNG, JPG, or WEBP up to 5MB</p>
+                </div>
+                <div class="photo-preview-box hidden" id="photo-preview-box">
+                  <img src="" id="photo-preview-img" alt="Uploaded photo preview">
+                  <button type="button" class="btn-remove-photo" id="btn-remove-photo" title="Remove photo">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="gb-submit-btn">
+              <span class="btn-icon">🚀</span> Post to Wall
+            </button>
+          </form>
+        </div>
+
+        <!-- Guestbook Feed Column -->
+        <div class="guestbook-feed-container">
+          <div class="feed-header">
+            <div class="feed-title-wrap">
+              <h3>Community Wall</h3>
+              <span class="feed-count-badge" id="feed-count-badge">3 Entries</span>
+            </div>
+            <div class="feed-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="photos">With Photos</button>
+            </div>
+          </div>
+
+          <div class="guestbook-feed" id="guestbook-feed">
+            <!-- Dynamic entries loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Pasture Moments</span>
+        <h2 class="section-title">Life In The Meadow</h2>
+        <p class="section-desc">Click any photo to enlarge in the interactive lightbox preview.</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" data-src="/assets/BCLM_big.png" data-caption="Official Black Cow Lives Matter Emblem">
+          <img src="/assets/BCLM_big.png" alt="BCLM Emblem" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="overlay-icon">🔍</span>
+            <span class="overlay-caption">BCLM Emblem</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-src="/assets/gallery/cow1.png" data-caption="Enviable pasture freedom at sunset">
+          <img src="/assets/gallery/cow1.png" alt="Black Steer Grazing" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="overlay-icon">🔍</span>
+            <span class="overlay-caption">Golden Pastures</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-src="/assets/gallery/cow2.png" data-caption="Gentle close-up portrait of our rescued pasture steer">
+          <img src="/assets/gallery/cow2.png" alt="Black Steer Close-up" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="overlay-icon">🔍</span>
+            <span class="overlay-caption">Sweet & Gentle</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-src="/assets/gallery/cow3.png" data-caption="Playful steer calf enjoying afternoon sunshine">
+          <img src="/assets/gallery/cow3.png" alt="Black Steer Playing" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="overlay-icon">🔍</span>
+            <span class="overlay-caption">Pasture Joy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Questions & Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <details class="faq-item" open>
+          <summary class="faq-question">Why was he saved from slaughter?</summary>
+          <div class="faq-answer">
+            <p>Every animal has a unique personality and deserves a chance to live in peace. When the opportunity came to rescue him at auction, he was brought home to live out his full natural life as a cherished pasture pet.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Where can I buy official BCLM merchandise?</summary>
+          <div class="faq-answer">
+            <p>You can purchase official BCLM hats, triblend graphic tees, and gear in our official Fourthwall collection at <a href="https://spite-network-shop.fourthwall.com/collections/bclm" target="_blank" rel="noopener" style="color: var(--accent-gold);">spite-network-shop.fourthwall.com</a>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How does the 3-in-1 Theme Switcher work?</summary>
+          <div class="faq-answer">
+            <p>Use the bar at the top of the screen to switch between 3 design styles: <strong>Concept 1 (Modern Gold)</strong> for a sleek dark mode, <strong>Concept 2 (B&W Documentary)</strong> for high-contrast photography noir, and <strong>Concept 3 (Warm Pasture)</strong> for a cozy storybook feel.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for Gallery & Photos -->
+  <div class="lightbox-modal hidden" id="lightbox-modal" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close modal">✕</button>
+    <div class="lightbox-content">
+      <img src="" id="lightbox-img" alt="Enlarged view">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="/assets/BCLM_big.png" alt="BCLM Logo" class="footer-logo">
+        <p class="footer-tagline">BLACK COW LIVES MATTER — From Slaughter to Sanctuary.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#story">Story</a>
+        <a href="#merch">Merch</a>
+        <a href="#guestbook">Wall</a>
+        <a href="#gallery">Gallery</a>
+        <a href="https://spite-network-shop.fourthwall.com/collections/bclm" target="_blank" rel="noopener">Fourthwall Shop</a>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 Black Cow Lives Matter (BCLM) & Spite Network. Built with pride & compassion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
